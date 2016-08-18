@@ -1,5 +1,5 @@
 <p align="center">
-<img src="assets/Bit.png?raw=true" alt="Bit">
+<img src="https://raw.githubusercontent.com/mlachmish/Bit/assets/Bit.png?raw=true" alt="Bit">
 </p>
 
 <p align = "center">
@@ -146,7 +146,7 @@ Download and drop ```/Bit``` folder in your project.
 
 ## Author
 
-Matan Lachmish <sub>a.k.a</sub> <b>The Big Fat Ninja</b> <img src="assets/TheBigFatNinja.png?raw=true" alt="The Big Fat Ninja" width="13"><br>
+Matan Lachmish <sub>a.k.a</sub> <b>The Big Fat Ninja</b> <img src="https://raw.githubusercontent.com/mlachmish/Bit/assets/TheBigFatNinja.png?raw=true" alt="The Big Fat Ninja" width="13"><br>
 https://thebigfatninja.xyz
 
 ### attribution
