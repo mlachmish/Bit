@@ -34,80 +34,57 @@
 </p>
 
 <br>
-<p align="center">A modern cryptography library in Swift.</p>
+<p align="center">Super light Bit operation library in Swift.</p>
 <p align="center">
   <a href="#features">Features</a>
   • <a href="#usage">Usage</a>
   • <a href="#installation">Installation</a>
-  • <a href="http://cocoadocs.org/docsets/Cryptography">Documentation</a>
+  • <a href="http://cocoadocs.org/docsets/Bit">Documentation</a>
   • <a href="#author">Author</a>
   • <a href="#license">License</a>
 </p>
 
 ## Features
 
-- [x] Hash Functions
-  - MD5
-  - SHA-1
-  - SHA-2 <sub>(SHA-224, SHA-256, SHA-384, SHA-512, SHA-512/224, SHA-512/256)</sub>
-  - SHA-3
-- [x] Message Authentication Codes
-  - HMAC <sub>(via: SHA-3/SHA-2/SHA-1/MD5)</sub>
+Full support of ```UInt8```, ```UInt32``` and ```UInt64```.
 
-### Soon to come
-- [ ] High Speed Stream Ciphers
-  - ChaCha
-  - Panama
-  - Sosemanuk
-  - Salsa20
-- [ ] block ciphers
-  - AES (Rijndael)
-  - Triple-DES (DES-EDE2 and DES-EDE3)
-  - Blowfish
-  - RC5
-- [ ] Message Authentication Codes
-  - VMAC
-  - CMAC
-  - GMAC
-- [ ] Hash Functions
-  - BLAKE2s
-  - BLAKE2b
-  - RIPEMD
-- [ ] Public-Key Cryptography
-  - RSA
-  - DSA
-  - ElGamal
-  - Nyberg-Rueppel (NR)
-  - Rabin-Williams (RW)
-- [ ] Key Agreement Schemes
-  - Diffie-Hellman (DH)
-  - Unified Diffie-Hellman (DH2)
-- [ ] Elliptic Curve Cryptography
-  - ECDSA
-  - ECNR
-  - ECIES
+- [x] Byte accesors
+- [x] Bitwise arithmetic
+- [x] Representation convertors
 
 ## Usage
 
-* [Hash Functions](#hash-functions)
-* [Message Authentication Codes](#message-authentication-codes)
+* [Accesors Functions](#accesors-functions)
+* [Bitwise arithmetic](#bitwise-arithmetic)
+* [Representation convertors](#representation-convertors)
 
-First import Cryptography module.
-```swift 
-import Cryptography
-```
-Everything you need is available via the ``` Cryptography ``` facade.
+### Accesors Functions
 
-### Hash Functions
-In order to calculate a hash value you simply call ``` Cryptography.hash(message: String, method: HashMethod) -> String ``` with the desired ``` HashMethod ```
 ```swift
-let hashValue = Cryptography.hash("The quick brown fox jumps over the lazy dog", method: HashMethod.SHA1) // "2fd4e1c67a2d28fced849ee1bb76e7391b93eb12"
+    let val1 = 0xA5C964F2 as UInt32
+    val1.firstByte  //0xF2
+    val1.secondByte //0x64
+    val1.thirdByte  //0xC9
+    val1.fourthByte //0xA5
 ```
 
-### Message Authentication Codes
-In order to calculate a MAC value you simply call ``` authenticate(message: String, key: String, method: MACMethod) -> String ``` with the desired ``` MACMethod ```
+### Bitwise arithmetic
+
 ```swift
-let macValue = Cryptography.authenticate("The quick brown fox jumps over the lazy dog", key: "key", method: MACMethod.HMAC(hashMethod: HashMethod.SHA1)) // "de7c9b85b8b78aa6bc8a7a36f70a90701c9db4d9"
+    let val1 = 0x00000001 as UInt32
+    val1.rotateLeft(0x00000002)     //0x00000004
+    val1.rotateRight(0x00000002)    //0x40000000
+    val1.reverseBytes()             //0x01000000
+```
+
+### Representation convertors
+
+```swift
+    Representations.toUInt8Array(64)    //[UInt8(0x00), UInt8(0x00), UInt8(0x00), UInt8(0x00), UInt8(0x00), UInt8(0x00), UInt8(0x00), UInt8(0x40)]
+    
+    Representations.mergeToUInt32Array([UInt8(0x01), UInt8(0x01), UInt8(0x01), UInt8(0x01),UInt8(0x01), UInt8(0x01), UInt8(0x01), UInt8(0x01)])       //UInt32(0x01010101), UInt32(0x01010101)]
+    
+    Representations.toHexadecimalString([UInt8(0x01), UInt8(0x01), UInt8(0x01), UInt8(0x01)])   //"01010101"
 ```
 
 ## Installation
@@ -128,7 +105,7 @@ to learn more.
     ```ruby
     use_frameworks!
 
-    pod 'Cryptography'
+    pod 'Bit'
     ```
 
 2. Run `pod install` and open the `.xcworkspace` file to launch Xcode.
@@ -136,7 +113,7 @@ to learn more.
 3. Import the Cryptography framework.
 
     ```swift
-    import Cryptography
+    import Bit
     ```
 
 ### Install Using Carthage
@@ -146,7 +123,7 @@ manager for Objective-C and Swift.
 1. Add the project to your [Cartfile](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfile).
 
     ```
-    github "mlachmish/Cryptography"
+    github "mlachmish/Bit"
     ```
 
 2. Run `carthage update` and follow [the additional steps](https://github.com/Carthage/Carthage#getting-started)
@@ -155,28 +132,22 @@ manager for Objective-C and Swift.
 3. Import the Cryptography framework.
 
     ```swift
-    import Cryptography
+    import Bit
     ```
     
 ###Swift Package Manager
 You can use [Swift Package Manager](https://swift.org/package-manager/) and specify dependency in `Package.swift` by adding this:
 ```
-.Package(url: "https://github.com/mlachmish/Cryptography.git", majorVersion: 0)
+.Package(url: "https://github.com/mlachmish/Bit.git", majorVersion: 0)
 ```
 
 ### Manually
-Download and drop ```/Cryptography``` folder in your project.
+Download and drop ```/Bit``` folder in your project.
 
 ## Author
 
 Matan Lachmish <sub>a.k.a</sub> <b>The Big Fat Ninja</b> <img src="assets/TheBigFatNinja.png?raw=true" alt="The Big Fat Ninja" width="13"><br>
 https://thebigfatninja.xyz
-
-### Audit & Security Disclosure
-
-If you believe you have identified a security vulnerability with Cryptography,<br>
-please report it as soon as possible via email to security@thebigfatninja.xyz<br>
-Do not post it to the public issue tracker.
 
 ### attribution
 
@@ -184,4 +155,4 @@ Icon made by <a title="Freepik" href="http://www.freepik.com">Freepik</a> from <
 
 ## License
 
-Cryptography is available under the MIT license. See the LICENSE file for more info.
+Bit is available under the MIT license. See the LICENSE file for more info.
