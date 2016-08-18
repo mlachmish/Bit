@@ -21,7 +21,7 @@ public extension UInt8 {
      - Parameter times: The number of rotations to be made.
      - Returns: The rotated value.
      */
-    func rotateLeft(times: UInt8) -> UInt8 {
+    public func rotateLeft(times: UInt8) -> UInt8 {
         return (self << times) | (self >> (8 - times))
     }
 
@@ -31,7 +31,7 @@ public extension UInt8 {
      - Parameter times: The number of rotations to be made.
      - Returns: The rotated value.
      */
-    func rotateRight(times: UInt8) -> UInt8 {
+    public func rotateRight(times: UInt8) -> UInt8 {
         return (self >> times) | (self << (8 - times))
     }
 
@@ -50,7 +50,7 @@ public extension UInt32 {
      - Parameter times: The number of rotations to be made.
      - Returns: The rotated value.
      */
-    func rotateLeft(times: UInt32) -> UInt32 {
+    public func rotateLeft(times: UInt32) -> UInt32 {
         return (self << times) | (self >> (32 - times))
     }
 
@@ -60,7 +60,7 @@ public extension UInt32 {
      - Parameter times: The number of rotations to be made.
      - Returns: The rotated value.
      */
-    func rotateRight(times: UInt32) -> UInt32 {
+    public func rotateRight(times: UInt32) -> UInt32 {
         return (self >> times) | (self << (32 - times))
     }
 
@@ -69,7 +69,7 @@ public extension UInt32 {
 
      - Returns: The reversed value.
      */
-    func reverseBytes() -> UInt32 {
+    public func reverseBytes() -> UInt32 {
         let tmp1 = ((self & 0x000000FF) << 24) | ((self & 0x0000FF00) << 8)
         let tmp2 = ((self & 0x00FF0000) >> 8)  | ((self & 0xFF000000) >> 24)
         return tmp1 | tmp2
@@ -90,7 +90,7 @@ public extension UInt64 {
      - Parameter times: The number of rotations to be made.
      - Returns: The rotated value.
      */
-    func rotateLeft(times: UInt64) -> UInt64 {
+    public func rotateLeft(times: UInt64) -> UInt64 {
         return (self << times) | (self >> (64 - times))
     }
 
@@ -100,7 +100,7 @@ public extension UInt64 {
      - Parameter times: The number of rotations to be made.
      - Returns: The rotated value.
      */
-    func rotateRight(times: UInt64) -> UInt64 {
+    public func rotateRight(times: UInt64) -> UInt64 {
         return ((self >> times) | (self << (64 - times)))
     }
 
@@ -109,7 +109,7 @@ public extension UInt64 {
 
      - Returns: The reversed value.
      */
-    func reverseBytes() -> UInt64 {
+    public func reverseBytes() -> UInt64 {
         let tmp1 = ((self & 0x00000000000000FF) << 56) |
             ((self & 0x000000000000FF00) << 40) |
             ((self & 0x0000000000FF0000) << 24) |

@@ -22,7 +22,7 @@ public class Representations {
 
      - Returns: The value split array of bytes.
      */
-    static func toUInt8Array<T>(value: T, length: Int? = nil) -> Array<UInt8> {
+    public static func toUInt8Array<T>(value: T, length: Int? = nil) -> Array<UInt8> {
         let totalBytes = length ?? sizeof(T)
         var copyOfValue = value
 
@@ -38,7 +38,7 @@ public class Representations {
 
      - Returns: The value merged as array of UInt32.
      */
-    static func mergeToUInt32Array(slice: ArraySlice<UInt8>) -> Array<UInt32> {
+    public static func mergeToUInt32Array(slice: ArraySlice<UInt8>) -> Array<UInt32> {
         var result = Array<UInt32>()
         result.reserveCapacity(16)
 
@@ -61,7 +61,7 @@ public class Representations {
 
      - Returns: The value merged as array of UInt64.
      */
-    static func mergeToUInt64Array(slice: ArraySlice<UInt8>) -> Array<UInt64> {
+    public static func mergeToUInt64Array(slice: ArraySlice<UInt8>) -> Array<UInt64> {
         var result = Array<UInt64>()
         result.reserveCapacity(32)
 
@@ -88,7 +88,7 @@ public class Representations {
 
      - Returns: hexadecimal string representation of Array<UInt8>.
      */
-    static func toHexadecimalString(bytes: Array<UInt8>) -> String {
+    public static func toHexadecimalString(bytes: Array<UInt8>) -> String {
         var hexString = String()
         for byte in bytes {
             hexString = hexString.stringByAppendingFormat("%02x", byte)
