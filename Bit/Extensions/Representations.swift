@@ -15,16 +15,17 @@ public class Representations {
 
     /**
      Array of bytes with optional padding (little-endian).
-     
+
      - Parameter value: The value that should be represented.
-     - Parameter length: Optional length ,padding with zero if needed, Default is the exact length needed with no padding.
-     
+     - Parameter length: Optional length ,
+     padding with zero if needed, Default is the exact length needed with no padding.
+
      - Returns: The value split array of bytes.
      */
     static func toUInt8Array<T>(value: T, length: Int? = nil) -> Array<UInt8> {
         let totalBytes = length ?? sizeof(T)
         var copyOfValue = value
-        
+
         return withUnsafePointer(&copyOfValue) {
             Array(UnsafeBufferPointer(start: UnsafePointer<UInt8>($0), count: totalBytes)).reverse()
         }
@@ -32,15 +33,15 @@ public class Representations {
 
     /**
      Merge Array of UInt8 to array of UInt32.
-     
-     - Parameter value: The value that should be represented.
-     
+
+     - Parameter slice: The value that should be represented.
+
      - Returns: The value merged as array of UInt32.
      */
     static func mergeToUInt32Array(slice: ArraySlice<UInt8>) -> Array<UInt32> {
         var result = Array<UInt32>()
         result.reserveCapacity(16)
-        
+
         for idx in slice.startIndex.stride(to: slice.endIndex, by: sizeof(UInt32)) {
             let val1: UInt32 = UInt32(slice[idx.advancedBy(3)]) << 24
             let val2: UInt32 = UInt32(slice[idx.advancedBy(2)]) << 16
@@ -49,21 +50,21 @@ public class Representations {
             let val: UInt32 = val1 | val2 | val3 | val4
             result.append(val)
         }
-        
+
         return result
     }
-    
+
     /**
      Merge Array of UInt8 to array of UInt64.
-     
-     - Parameter value: The value that should be represented.
-     
+
+     - Parameter slice: The value that should be represented.
+
      - Returns: The value merged as array of UInt64.
      */
     static func mergeToUInt64Array(slice: ArraySlice<UInt8>) -> Array<UInt64> {
         var result = Array<UInt64>()
         result.reserveCapacity(32)
-        
+
         for idx in slice.startIndex.stride(to: slice.endIndex, by: sizeof(UInt64)) {
             let val1: UInt64 = UInt64(slice[idx.advancedBy(7)]) << 56
             let val2: UInt64 = UInt64(slice[idx.advancedBy(6)]) << 48
@@ -76,15 +77,15 @@ public class Representations {
             let val: UInt64 = val1 | val2 | val3 | val4 | val5 | val6 | val7 | val8
             result.append(val)
         }
-        
+
         return result
     }
-    
+
     /**
      Hexadecimal to String convertor.
-     
-     - Parameter value: The value that should be represented.
-     
+
+     - Parameter bytes: The value that should be represented.
+
      - Returns: hexadecimal string representation of Array<UInt8>.
      */
     static func toHexadecimalString(bytes: Array<UInt8>) -> String {
@@ -92,8 +93,8 @@ public class Representations {
         for byte in bytes {
             hexString = hexString.stringByAppendingFormat("%02x", byte)
         }
-        
+
         return hexString
     }
-    
+
 }

@@ -15,7 +15,6 @@
 		9018EECF1D64DD330006014D /* RepresentationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9018EECB1D64DD330006014D /* RepresentationsTests.swift */; };
 		90C8EAAD1D64DADB00B57F92 /* Bit.h in Headers */ = {isa = PBXBuildFile; fileRef = 90C8EAAC1D64DADB00B57F92 /* Bit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		90C8EAB41D64DADB00B57F92 /* Bit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90C8EAA91D64DADB00B57F92 /* Bit.framework */; };
-		90C8EAB91D64DADB00B57F92 /* BitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C8EAB81D64DADB00B57F92 /* BitTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +38,6 @@
 		90C8EAAC1D64DADB00B57F92 /* Bit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bit.h; sourceTree = "<group>"; };
 		90C8EAAE1D64DADB00B57F92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		90C8EAB31D64DADB00B57F92 /* BitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		90C8EAB81D64DADB00B57F92 /* BitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitTests.swift; sourceTree = "<group>"; };
 		90C8EABA1D64DADB00B57F92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -114,7 +112,6 @@
 			isa = PBXGroup;
 			children = (
 				9018EEC71D64DD330006014D /* Extensions */,
-				90C8EAB81D64DADB00B57F92 /* BitTests.swift */,
 				90C8EABA1D64DADB00B57F92 /* Info.plist */,
 			);
 			path = BitTests;
@@ -142,6 +139,7 @@
 				90C8EAA51D64DADB00B57F92 /* Frameworks */,
 				90C8EAA61D64DADB00B57F92 /* Headers */,
 				90C8EAA71D64DADB00B57F92 /* Resources */,
+				9018EED01D65A4CA0006014D /* Lint */,
 			);
 			buildRules = (
 			);
@@ -223,6 +221,23 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		9018EED01D65A4CA0006014D /* Lint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Lint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		90C8EAA41D64DADB00B57F92 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -239,7 +254,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9018EECC1D64DD330006014D /* AccessorsTests.swift in Sources */,
-				90C8EAB91D64DADB00B57F92 /* BitTests.swift in Sources */,
 				9018EECF1D64DD330006014D /* RepresentationsTests.swift in Sources */,
 				9018EECD1D64DD330006014D /* ArithmeticsTests.swift in Sources */,
 			);

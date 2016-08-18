@@ -17,7 +17,7 @@ public extension UInt8 {
 
     /**
      Round rotate left.
-     
+
      - Parameter times: The number of rotations to be made.
      - Returns: The rotated value.
      */
@@ -27,7 +27,7 @@ public extension UInt8 {
 
     /**
      Round rotate right.
-     
+
      - Parameter times: The number of rotations to be made.
      - Returns: The rotated value.
      */
@@ -46,7 +46,7 @@ public extension UInt32 {
 
     /**
      Round rotate left.
-     
+
      - Parameter times: The number of rotations to be made.
      - Returns: The rotated value.
      */
@@ -56,7 +56,7 @@ public extension UInt32 {
 
     /**
      Round rotate right.
-     
+
      - Parameter times: The number of rotations to be made.
      - Returns: The rotated value.
      */
@@ -66,7 +66,7 @@ public extension UInt32 {
 
     /**
      Revers the order of bytes.
-     
+
      - Returns: The reversed value.
      */
     func reverseBytes() -> UInt32 {
@@ -86,7 +86,7 @@ public extension UInt64 {
 
     /**
      Round rotate left.
-     
+
      - Parameter times: The number of rotations to be made.
      - Returns: The rotated value.
      */
@@ -96,7 +96,7 @@ public extension UInt64 {
 
     /**
      Round rotate right.
-     
+
      - Parameter times: The number of rotations to be made.
      - Returns: The rotated value.
      */
@@ -106,7 +106,7 @@ public extension UInt64 {
 
     /**
      Revers the order of bytes.
-     
+
      - Returns: The reversed value.
      */
     func reverseBytes() -> UInt64 {

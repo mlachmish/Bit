@@ -69,30 +69,30 @@ class ArithmeticsTests: XCTestCase {
     // Mark: UInt64
     func testUInt64RotateLeft() {
         let val1 = 0x0000000000000001 as UInt64
-        XCTAssertEqual(val1.rotateLeft(0x0000000000000001), 0x0000000000000002,
-                       "Rotation test failed")
-        XCTAssertEqual(val1.rotateLeft(0x0000000000000002), 0x0000000000000004,
-                       "Rotation test failed")
+        XCTAssertEqual(val1.rotateLeft(0x0000000000000001),
+                       0x0000000000000002, "Rotation test failed")
+        XCTAssertEqual(val1.rotateLeft(0x0000000000000002),
+                       0x0000000000000004, "Rotation test failed")
 
         let val2 = 0x0000000000000005 as UInt64
-        XCTAssertEqual(val2.rotateLeft(0x0000000000000001), 0x000000000000000a,
-                       "Rotation test failed")
-        XCTAssertEqual(val2.rotateLeft(0x0000000000000002), 0x0000000000000014,
-                       "Rotation test failed")
+        XCTAssertEqual(val2.rotateLeft(0x0000000000000001),
+                       0x000000000000000a, "Rotation test failed")
+        XCTAssertEqual(val2.rotateLeft(0x0000000000000002),
+                       0x0000000000000014, "Rotation test failed")
     }
 
     func testUInt64RotateRight() {
         let val1 = 0x0000000000000001 as UInt64
-        XCTAssertEqual(val1.rotateRight(0x0000000000000001), 0x8000000000000000,
-                       "Rotation test failed")
-        XCTAssertEqual(val1.rotateRight(0x0000000000000002), 0x4000000000000000,
-                       "Rotation test failed")
+        XCTAssertEqual(val1.rotateRight(0x0000000000000001),
+                       0x8000000000000000, "Rotation test failed")
+        XCTAssertEqual(val1.rotateRight(0x0000000000000002),
+                       0x4000000000000000, "Rotation test failed")
 
         let val2 = 0x0000000000000005 as UInt64
-        XCTAssertEqual(val2.rotateRight(0x0000000000000001), 0x8000000000000002,
-                       "Rotation test failed")
-        XCTAssertEqual(val2.rotateRight(0x0000000000000002), 0x4000000000000001,
-                       "Rotation test failed")
+        XCTAssertEqual(val2.rotateRight(0x0000000000000001),
+                       0x8000000000000002, "Rotation test failed")
+        XCTAssertEqual(val2.rotateRight(0x0000000000000002),
+                       0x4000000000000001, "Rotation test failed")
     }
 
     func testUInt64ReverseBytes() {
