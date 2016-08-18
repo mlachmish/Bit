@@ -4,8 +4,12 @@ All notable changes to this project will be documented in this file.
 
 ---
 
-## [0.1.0](https://github.com/mlachmish/Bit/releases/tag/0.1.0) (17/08/2016)
-Released on Wednesday, August 17, 2016.
+## [0.1.0](https://github.com/mlachmish/Bit/releases/tag/0.1.0) (18/08/2016)
+Released on Thursday, August 18, 2016.
 
 #### Added
-* 
+* Accessor methods (UInt32, UInt64)
+* Round rotation (UInt8, UInt32, UInt64)
+* Reverse byte order (UInt32, UInt64)
+* Convert (UInt32, UInt64) to arrat of UInt8
+* Merge UInt8 to (UInt32, UInt64) array
