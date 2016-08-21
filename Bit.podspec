@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'Bit'
-  s.version          = '1.0.1'
+  s.version          = '1.1.0'
   s.summary          = 'Bit operation library in Swift.'
 
   s.description      = <<-DESC
